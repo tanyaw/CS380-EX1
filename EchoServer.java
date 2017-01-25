@@ -45,20 +45,20 @@ public final class EchoServer_Multi implements Runnable {
 	}
 
 	public static void main(String[] args) throws Exception {
-       try (ServerSocket serverSocket = new ServerSocket(22222)) {
-            while (true) {
-                try {
+      		try (ServerSocket serverSocket = new ServerSocket(22222)) {
+            		while (true) {
+                		try {
 					//Create new Client Thread 
 					//Each client object creates its own socket to communicate to the Server
 					Thread test = new Thread(new EchoServer_Multi(serverSocket.accept()));
 					test.start();
-				
 				} catch(IOException e){
 					e.printStackTrace();
 				}
-            }
-        } 
-    }
+            	} catch(IOException e) {
+			e.printStackTrace();
+		} 
+    	}
 }
 
 
